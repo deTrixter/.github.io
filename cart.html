@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+</head>
+<body>
+    <h1>Ваша корзина</h1>
+    <p>Количество товаров: <span id="cart-count">0</span></p>
+    <button onclick="clearCart()">Очистить корзину</button>
+
+    <script>
+        // Получить количество товаров из localStorage и отобразить
+        let itemCount = localStorage.getItem("itemCount") ? parseInt(localStorage.getItem("itemCount")) : 0;
+        document.getElementById("cart-count").textContent = itemCount;
+
+        function clearCart() {
+            itemCount = 0;
+            localStorage.setItem("itemCount", itemCount); // Обновить в localStorage
+            document.getElementById("cart-count").textContent = itemCount;
+            document.getElementById("item-count").textContent = itemCount;
+            alert("Корзина очищена!");
+        }
+    </script>
+</body>
+</html>

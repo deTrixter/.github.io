@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Company</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/media.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <a href="main.html" class="logo">
+            <img src="/img/CompanyLogo.png" alt="logo" class="logo_img">
+            <span class="logo_text">Company Name</span>
+        </a>
+
+        <nav class="nav_bar">
+            <a href="/main.html">Главная</a>
+            <a href="#products">Товары</a>
+            <a href="#">Контакты</a>
+        </nav>
+
+
+        <a href="cart.html" class="cart">
+            <img src="/img/cart.png" alt="Перейти в корзину" style="width: 8vh;" ><span id="item-count">0</span>
+        </a>
+
+        
+
+        <button class="btn" id="shakeButton">
+            <a href="#products">Сделать заказ</a>
+        </button>
+
+        <button class="cart_txt">
+            <a href="cart.html">Мои покупки <span id="item-count-mobile">0</span></a>
+        </button>
+        
+
+
+        <script>
+            const shakeButton = document.getElementById('shakeButton');
+
+            function shake() {
+                shakeButton.classList.add('shake');
+                setTimeout(() => {
+                    shakeButton.classList.remove('shake');
+                }, 500); 
+            }
+            setInterval(shake, 5000);
+
+            // 
+
+            let itemCount = localStorage.getItem("itemCount") ? parseInt(localStorage.getItem("itemCount")) : 0;
+
+            function updateItemCountDisplay() {
+                document.getElementById("item-count").textContent = itemCount;
+                document.getElementById("item-count-mobile").textContent = itemCount;
+            }
+
+            updateItemCountDisplay();
+
+            function addToCart() {
+                itemCount++;
+                localStorage.setItem("itemCount", itemCount);
+                updateItemCountDisplay();
+            }
+
+            updateItemCountDisplay();
+
+            //
+
+            
+
+
+        </script>
+        
+    </header>
+
+    <hr>
+
+    <main>
+
+        <div class="container">
+            <div class="about_us">
+                <h1>Магазин <a href="/main.html">"Company Name"</a> предлагает стильные вещи для всей семьи. 
+                У нас уникальные дизайны и быстрая доставка!</h1>
+                <img src="/img/img1.png" alt="our_product">
+            </div>
+        
+            <hr>
+        
+            <div class="about_us">
+                <img src="/img/img2.png" alt="our_product">
+                <h1>В <a href="/main.html">"Company Name"</a> вы найдете модную одежду и аксессуары для всех возрастов. 
+                Мы заботимся о вашем комфорте!</h1>
+            </div>
+        
+            <hr>
+        
+            <div class="about_us">
+                <h1>Магазин <a href="/main.html">"Company Name"</a> предлагает уникальные вещи для любого случая. 
+                Быстрая доставка и отличный сервис — это о нас!</h1>
+                <img src="/img/img3.png" alt="our_product" style="height: auto; width: 150px;">
+            </div>
+        </div>
+
+        <hr>
+        
+        <h1 style="display: flex; justify-content: center; margin-top: 10vh; font-size: 3rem; text-shadow: 0 0 10px #000;" class="our_prod">Готовая продукция</h1>
+
+
+        <div class="controls">
+            <button class="control_btn" id="btn_left"><img src="/img/arrow.png" alt="left" style="width: 120px; transform: rotate(180deg); ">;</button>
+            <div class="products">
+            
+                <div class="product">
+                    <img src="/img/prod1.png" alt="" class="product_img" >
+                    <p>Стильная кожаная куртка с удобной посадкой, классический вариант для межсезонья</p>
+                    <b style="font-size: 20px; margin: 10px 0;">5.99$</b>
+                    <button onclick="addToCart()" class="product_btn">В корзину
+                    </button>
+                </div>
+                <div class="product">
+                    <img src="/img/prod2.png" alt="" class="product_img" >
+                    <p>Легкая блузка из мягкой ткани, подходит для офиса и повседневного стиля</p>
+                    <b style="font-size: 20px; margin: 10px 0;">3.49$</b>
+                    <button onclick="addToCart()" class="product_btn">В корзину
+                    </button>
+                </div>
+                <div class="product">
+                    <img src="/img/prod3.png" alt="" class="product_img" >
+                    <p>Классическая рубашка прямого кроя, подойдет для деловых встреч и торжественных случаев</p>
+                    <b style="font-size: 20px; margin: 10px 0;">3.99$</b>
+                    <button onclick="addToCart()" class="product_btn">В корзину
+                    </button>
+                </div>
+                <div class="product">
+                    <img src="/img/prod4.png" alt="" class="product_img" >
+                    <p>Элегантная модель с рукавами, идеальна для создания романтического образа</p>
+                    <b style="font-size: 20px; margin: 10px 0;">4.99$</b>
+                    <button onclick="addToCart()" class="product_btn">В корзину
+                    </button>
+                </div>
+                <div class="product">
+                    <img src="/img/prod5.png" alt="" class="product_img" >
+                    <p>Стильное мини-платье для особых случаев, подчеркивающее фигуру</p>
+                    <b style="font-size: 20px; margin: 10px 0;">5.99$</b>
+                    <button onclick="addToCart()" class="product_btn">В корзину
+                    </button>
+                </div>
+                <div class="product">
+                    <img src="/img/prod6.png" alt="" class="product_img" >
+                    <p>Удобная рубашка с универсальным дизайном, сочетается с любыми аксессуарами</p>
+                    <b style="font-size: 20px; margin: 10px 0;">3.99$</b>
+                    <button onclick="addToCart()" class="product_btn">В корзину
+                    </button>
+                </div>
+                <div class="product">
+                    <img src="/img/prod7.png" alt="" class="product_img" >
+                    <p>Легкая рубашка для повседневного образа, отлично комбинируется с джинсами</p>
+                    <b style="font-size: 20px; margin: 10px 0;">2.49$</b>
+                    <button onclick="addToCart()" class="product_btn">В корзину
+                    </button>
+                </div>
+                <div class="product">
+                    <img src="/img/prod8.png" alt="" class="product_img" >
+                    <p>Базовая рубашка для повседневной носки, приятная на ощупь ткань</p>
+                    <b style="font-size: 20px; margin: 10px 0;">4.99$</b>
+                    <button onclick="addToCart()" class="product_btn">В корзину
+                    </button>
+                </div>
+                <div class="product">
+                    <img src="/img/prod9.png" alt="" class="product_img" >
+                    <p>Рубашка для офиса и встреч, выполнена из качественного материала</p>
+                    <b style="font-size: 20px; margin: 10px 0;">1.99$</b>
+                    <button onclick="addToCart()" class="product_btn">В корзину
+                    </button>
+                </div>
+                <div class="product">
+                    <img src="/img/prod10.png" alt="" class="product_img" >
+                    <p>Классическая рубашка для делового стиля с оптимальной посадкой</p>
+                    <b style="font-size: 20px; margin: 10px 0;">2.99$</b>
+                    <button onclick="addToCart()" class="product_btn">В корзину
+                    </button>
+                </div>
+                <div class="product to">
+                    <a href="#">Ещё больше товаров...</a>
+                </div>
+                
+            </div>
+            <button class="control_btn" id="btn_right"><img src="/img/arrow.png" alt="right" style="width: 150px;">;</button>
+        </div>
+
+        
+
+        <script>
+            let horizontScroll = document.querySelector('.products');
+            let rightBtn = document.getElementById('btn_left');
+            let leftBtn = document.getElementById('btn_right');
+
+            rightBtn.addEventListener('click', ()=> {
+                horizontScroll.style.scrollBehavior = "smooth";
+                horizontScroll.scrollLeft -= 300;
+            });
+            leftBtn.addEventListener('click', ()=> {
+                horizontScroll.style.scrollBehavior = "smooth";
+                horizontScroll.scrollLeft += 300;
+            });
+        </script>
+        <hr>
+
+        <section class="section">
+            <div class="order_header">
+                <h1 style="display: flex; justify-content: center; margin-top: 10vh; font-size: 3rem; text-shadow: 0 0 10px #000;" class="our_prod2">Изготовим под заказ</h1>
+
+
+                <h2 class="order">На выбор пошив из различных материалов,<br> разнообразные стили на Ваш вкус – от классических и строгих до повседневных и спортивных вариантов. <br> Каждый предмет создан с учетом актуальных тенденций и удобства, чтобы дополнить ваш образ и подчеркнуть индивидуальность.</h2>
+            </div>
+
+            <button class="order_product_btn">
+                <a href="#products">Выбрать материал и сделать заказ</a>
+            </button>
+
+            <div class="order_product">
+                <ul class="order_product_list">
+                    <li class="order_product_item">
+                        <a href="#">
+                            <img src="./img/cotton.png" alt="" class="order_product_img" style="width: 300px; height: auto;">
+                            <h3>Хлопок</h3>
+                            <p>Натуральная ткань, мягкая и дышащая, идеально подходит для повседневной одежды, летних нарядов и рубашек. Она гипоаллергенна и комфортна для кожи, но имеет склонность к сминанию. Хлопок легко красится и может быть разной плотности.</p>
+                        </a>
+                    </li>
+                    <li class="order_product_item">
+                        <a href="#">
+                            <img src="./img/len.png" alt="" class="order_product_img" style="width: 300px; height: auto;">
+                            <h3>Лен</h3>
+                            <p>Ещё одна натуральная ткань, известная своей воздухопроницаемостью и способностью сохранять прохладу в жару. Лен долговечен, но также легко мнётся и требует ухода. Это хороший выбор для летней одежды и аксессуаров, а также для создания винтажного стиля.</p>
+                        </a>
+                    </li>
+                    <li class="order_product_item">
+                        <a href="#">
+                            <img src="./img/wool.png" alt="" class="order_product_img" style="width: 300px; height: auto;">
+                            <h3>Шерсть</h3>
+                            <p>Утепляющий, плотный материал, популярный для костюмов, пальто и свитеров. Шерсть хорошо удерживает тепло и регулирует влажность, что делает её незаменимой в холодные сезоны. Она может иметь различную текстуру и степень мягкости, в зависимости от обработки и типа волокон.</p>
+                        </a>
+                    </li>
+                    
+                    <li class="order_product_item">
+                        <a href="#">
+                            <img src="./img/silk.png" alt="" class="order_product_img" style="width: 300px; height: auto;">
+                            <h3>Шелк</h3>
+                            <p>Роскошная, гладкая и слегка блестящая ткань, известная своей лёгкостью и мягкостью. Шелк подходит для пошива нарядной одежды, вечерних платьев и блузок. Он приятен на ощупь, хорошо драпируется, но требует бережного ухода, так как легко рвётся и мнётся.
+                            </p>
+                        </a>
+                    </li>
+                    <li class="order_product_item">
+                        <a href="#">
+                            <img src="./img/synthetic.png" alt="" class="order_product_img" style="width: 300px; height: auto;">
+                            <h3>Синтетический полиэстер</h3>
+                            <p>Прочная ткань, устойчивая к сминанию и выцветанию. Полиэстер широко используется для пошива спортивной и повседневной одежды, так как он не требует сложного ухода. Несмотря на это, полиэстер может быть не таким дышащим, как натуральные ткани, и плохо удерживает тепло в холод.</p>
+                        </a>
+                    </li>
+                    <li class="order_product_item">
+                        <a href="#">
+                            <img src="./img/viscose.png" alt="" class="order_product_img" style="width: 300px; height: auto;">
+                            <h3>Вискоза</h3>
+                            <p>Это искусственная ткань, сделанная из натурального сырья (целлюлозы), которая часто используется как альтернатива шелку. Вискоза мягкая, хорошо драпируется и приятна к телу, поэтому подходит для лёгких платьев, блузок и штанов. Ткань склонна к усадке и требует внимательного ухода при стирке.</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <button class="order_product_btn">
+                <a href="#products">Выбрать материал и сделать заказ</a>
+            </button>
+
+        </section>
+
+        <hr>
+
+    </main>
+    
+    
+    
+    
+    <footer class="footer">
+        <div class="footer_content">
+            <div class="fotert_content_list">
+                <h4>Помощь</h4>
+                <ul>
+                    <li><a href="#">Магазины</a></li>
+                    <li><a href="#">Оплата и доставка</a></li>
+                    <li><a href="#">Контакты</a></li>
+                    <li><a href="#">Обратная связь</a></li>
+                    <li><a href="#">Поставщикам</a></li>
+                    <li><a href="#">Партнёрам Company Name</a></li>
+                    <li><a href="#">О компании</a></li>
+                    <li><a href="#">Политика конфиденциальности</a></li>
+                </ul>
+            </div>
+            
+            <div class="fotert_content_list">
+                <h4>Наши проекты</h4>
+                <ul>
+                    <li><a href="#">Чёрная Пятница 2024</a></li>
+                    <li><a href="#">Товар дня</a></li>
+                    <li><a href="#">Коллекция "Нить"</a></li>
+                    <li><a href="#">Company Name Blog</a></li>
+                    <li><a href="#">Благотворительность</a></li>
+                    <li><a href="#">Акция года</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4>Контакты</h4>
+                <p class="phone-number">0 800 000 000</p>
+                <p>Без выходных 8:00 - 21:00</p>
+                <p>Бесплатные звонки со стационарных и мобильных телефонов </p>
+                <p><strong>Company Name бот в Telegram/Viber</strong></p>
+            </div>
+            
+            <div>
+                <h4>Подписка на новости</h4>
+                <p>Узнавайте первыми об акциях и новостях</p>
+                <form class="subscription-form">
+                    <input type="email" placeholder="Электронная почта" class="email-input">
+                    <button type="submit" class="subscribe-button">Подписка</button>
+                </form>
+                <div class="social-icons">
+                    <span><a href="#"><img src="/img/telegram_icon.png" alt="" style="width: 20px;"></a></span>
+                    <span><a href="#"><img src="/img/viber_icon.png" alt="" style="width: 20px;"></a></span>
+                    <span><a href="#"><img src="/img/vk_icon.png" alt="" style="width: 20px;"></a></span>
+                    <span><a href="#"><img src="/img/whatsapp_icon.png" alt="" style="width: 20px;"></a></span>
+                    <span><a href="#"><img src="/img/youtube_icon.png" alt="" style="width: 20px;"></a></span>
+                    <span><a href="#"><img src="/img/instagram_icon.png" alt="" style="width: 20px;"></a></span>
+                </div>
+                <p><strong>Company Name на вашем смартфоне</strong></p>
+                <div class="app-links">
+                    <img src="./img/on-app-store.svg" alt="App Store">
+                    <img src="./img/on-google-play.svg" alt="Google Play">
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+    
+    
+    
+</body>
+</html>
